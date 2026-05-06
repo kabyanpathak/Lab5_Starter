@@ -14,9 +14,9 @@ test('valid phone number with dashes', () => {
 test('valid phone number with parentheses', () => {
   expect(isPhoneNumber('(123) 456-7890')).toBe(true);
 });
-test('invalid phone number - too short', () => {
-  expect(isPhoneNumber('123-4567')).toBe(false);
+test('rejects phone number with too many digits and no -', () => {
+  expect(isPhoneNumber('12345678901')).toBe(false);
 });
-test('invalid phone number - letters', () => {
+test('invalid phone number with no numbers', () => {
   expect(isPhoneNumber('abc-def-ghij')).toBe(false);
 });
